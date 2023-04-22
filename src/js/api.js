@@ -30,8 +30,40 @@
 //   .then(response => response.json())
 //   .then(({ hits }) => console.log(hits));
 
-export default function fetchData(query) {
-  const URL = `https://pixabay.com/api/?key=35628652-5826d534b36a8e5c375c91e65&q=${query}`;
+//! ================== модуль 10 запит на API ====================
 
-  return fetch(URL).then(response => response.json());
+// export default function fetchData(query) {
+//   const URL = `https://pixabay.com/api/?key=35628652-5826d534b36a8e5c375c91e65&q=${query}`;
+
+//   return fetch(URL).then(response => response.json());
+// }
+
+//! ================== модуль 10 пагінація ====================
+const ENDPOIND = 'https://pixabay.com/api';
+const KEY = '35628652-5826d534b36a8e5c375c91e65';
+export default class ImageApiService {
+  constructor() {
+    this.page = 1;
+    this.searchQuery = '';
+  }
+
+  getImg() {
+    const URL = `${ENDPOIND}/?key=${KEY}&q=${this.searchQuery}&page=${this.page}&per_page=5`;
+
+    return fetch(URL)
+      .then(response => response.json())
+      .then(({ hits }) => {
+        this.nextPage();
+        return hits;
+      });
+  }
+
+  //додаємо сторінку
+  nextPage() {
+    this.page += 1;
+  }
+  // скидуємо на 1 сторінку при новому запиті
+  resetPage() {
+    this.page = 1;
+  }
 }

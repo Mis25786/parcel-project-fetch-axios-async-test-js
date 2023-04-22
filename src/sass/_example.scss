@@ -55,6 +55,23 @@ input:valid {
 }
 
 .thumb {
-  background-color: aquamarine;
+  background-color: rgb(223, 220, 220);
   border-radius: 15px;
+}
+
+#loadMore {
+  margin-top: 30px;
+  background-color: rgb(70, 70, 173);
+  border: none;
+  outline: 2px solid rgb(124, 227, 20);
+  border-radius: 5px;
+  color: gold;
+  cursor: pointer;
+}
+#loadMore:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+#loadMore.hidden {
+  display: none;
 }
