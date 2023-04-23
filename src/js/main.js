@@ -145,3 +145,101 @@ function onError(err) {
   loadMoreBtn.hide();
   appendImageList('<h1>Not faund</h1>');
 }
+
+//! ================== модуль 11 async ====================
+
+// import ImageApiService from './api';
+// import LoadMoreBtn from './LoadMoreBtn';
+// import LoadMoreBtn from './LoadMoreBtn';
+// import LoadMoreBtn from './LoadMoreBtn';
+
+// const form = document.getElementById('form');
+// const newsImg = document.getElementById('newsImg');
+
+// //* створюємо екземпляр класу (щоб викликати клас)
+// const imageApiService = new ImageApiService();
+// const loadMoreBtn = new LoadMoreBtn({ selector: '#loadMore', isHidden: true });
+
+// form.addEventListener('submit', onSubmit);
+// loadMore.addEventListener('click', featchHits);
+
+// function onSubmit(e) {
+//   e.preventDefault();
+
+//   //* визначаємо дякий елемент в формі був активований
+//   const form = e.currentTarget;
+//   //* отримуемо з інпуту введене значення
+//   const value = form.elements.photo.value.trim();
+
+//   //* передаємо з інпуту введене в клас => конструктор
+//   imageApiService.searchQuery = value;
+
+//   //* скидуємо при новому запиті на 1 сторінку
+//   imageApiService.resetPage();
+//   //* очищаємо список
+//   clearImageList();
+
+//   //* робимо запит і виводимо 1 сторінку
+
+//   featchHits().finally(() => form.reset());
+
+//   loadMoreBtn.show();
+// }
+
+// //* кнопка додати ще робить новий запит
+// async function featchHits() {
+//   loadMoreBtn.disabled();
+
+//   try {
+//     const hits = await imageApiService.getImg();
+//     console.log(hits);
+
+//     if (hits.length === 0) throw new Error('No data');
+
+//     const acc = hits.reduce((acc, hit) => createMarcup(hit) + acc, '');
+
+//     appendImageList(acc);
+//     loadMoreBtn.enable();
+//   } catch (err) {
+//     console.error(err);
+//   }
+
+//   // return imageApiService
+//   //   .getImg()
+
+//   //   .then(hits => {
+//   //     if (hits.length === 0) throw new Error('No data');
+//   //     return hits.reduce((acc, hit) => createMarcup(hit) + acc, '');
+//   //   })
+//   //   .then(acc => {
+//   //     appendImageList(acc);
+//   //     loadMoreBtn.enable();
+//   //   })
+//   //   .catch(onError);
+// }
+
+// //* додаємо кожен елемент в уінець списку
+// function appendImageList(markup) {
+//   // newsImg.innerHTML = markup;
+//   newsImg.insertAdjacentHTML('beforeend', markup);
+// }
+
+// //* очищаємо список
+// function clearImageList(markup) {
+//   newsImg.innerHTML = '';
+// }
+
+// //* робимо розмітку кожному елементу
+// function createMarcup({ webformatURL, tags, id }) {
+//   return `<div class='thumb'>
+//   <h1>${id}</h1>
+//   <h4>${tags}</h4>
+//       <img src=${webformatURL} alt=${tags} width="240" class="image"/>
+//     </div>`;
+// }
+
+// //* виводемо повідомлення на помилку
+// function onError(err) {
+//   loadMoreBtn.hide();
+//   appendImageList('<h1>Not faund</h1>');
+// }
